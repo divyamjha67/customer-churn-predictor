@@ -1,0 +1,307 @@
+{
+  "model_version": "2.0.0",
+  "schema_version": "1",
+  "model_name": "Gradient boosting",
+  "trained_at_utc": "2026-10-22T16:49:48.686617+00:00",
+  "python": "3.12.14",
+  "sklearn": "1.7.2",
+  "dataset_sha256": "16320c9c1ec72448db59aa0a26a0b95401046bef5d02fd3aeb906448e3055e91",
+  "model_sha256": "9d894c8b824aaad7d3082ca6ef58309971957713ed20d7be7d00aed5132370aa",
+  "rows": 7043,
+  "churn_rate": 0.2653698707936959,
+  "seed": 42,
+  "features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "Contract",
+    "InternetService",
+    "OnlineSecurity",
+    "TechSupport",
+    "OnlineBackup",
+    "DeviceProtection",
+    "PaymentMethod",
+    "PaperlessBilling",
+    "PhoneService",
+    "MultipleLines",
+    "StreamingTV",
+    "StreamingMovies"
+  ],
+  "split": {
+    "train": 4225,
+    "validation": 1409,
+    "test": 1409
+  },
+  "comparison": [
+    {
+      "name": "Prior baseline",
+      "cv_ap_mean": 0.26532532037498924,
+      "cv_ap_std": 0.00030103947767800307,
+      "fold_ap": [
+        0.26584673604541154,
+        0.26515151515151514,
+        0.26515151515151514,
+        0.26515151515151514
+      ]
+    },
+    {
+      "name": "Logistic regression (C=0.1)",
+      "cv_ap_mean": 0.6583432262369867,
+      "cv_ap_std": 0.037699540092221,
+      "fold_ap": [
+        0.665038995994905,
+        0.7141351681034609,
+        0.6440565242359437,
+        0.6101422166136373
+      ]
+    },
+    {
+      "name": "Logistic regression (C=1)",
+      "cv_ap_mean": 0.6602348297449483,
+      "cv_ap_std": 0.03845234379285508,
+      "fold_ap": [
+        0.6699365016935412,
+        0.7163483767279791,
+        0.6432277997895186,
+        0.6114266407687542
+      ]
+    },
+    {
+      "name": "Gradient boosting",
+      "cv_ap_mean": 0.6633270439654584,
+      "cv_ap_std": 0.02260526405304998,
+      "fold_ap": [
+        0.6590688227084623,
+        0.7006604445221274,
+        0.6533122168968236,
+        0.6402666917344197
+      ]
+    }
+  ],
+  "threshold": 0.13,
+  "threshold_objective": "Maximum validation F2 on 0.05..0.95 (0.01 steps); beta=2 favors recall",
+  "validation": {
+    "roc_auc": 0.8558539357772095,
+    "average_precision": 0.6778161343888047,
+    "brier": 0.13097134504454602,
+    "accuracy": 0.6508161816891412,
+    "precision": 0.4278728606356968,
+    "recall": 0.9358288770053476,
+    "f1": 0.587248322147651,
+    "f2": 0.756266205704408,
+    "confusion_matrix": [
+      [
+        567,
+        468
+      ],
+      [
+        24,
+        350
+      ]
+    ]
+  },
+  "test": {
+    "roc_auc": 0.8287258777028598,
+    "average_precision": 0.6204115806028261,
+    "brier": 0.14309021206831807,
+    "accuracy": 0.6536550745209369,
+    "precision": 0.42803030303030304,
+    "recall": 0.9064171122994652,
+    "f1": 0.58147512864494,
+    "f2": 0.7408216783216783,
+    "confusion_matrix": [
+      [
+        582,
+        453
+      ],
+      [
+        35,
+        339
+      ]
+    ]
+  },
+  "test_at_0_5": {
+    "roc_auc": 0.8287258777028598,
+    "average_precision": 0.6204115806028261,
+    "brier": 0.14309021206831807,
+    "accuracy": 0.7856635911994322,
+    "precision": 0.6232876712328768,
+    "recall": 0.48663101604278075,
+    "f1": 0.5465465465465466,
+    "f2": 0.5089485458612976,
+    "confusion_matrix": [
+      [
+        925,
+        110
+      ],
+      [
+        192,
+        182
+      ]
+    ]
+  },
+  "test_positive_rate": 0.2654364797728886,
+  "test_ci95": {
+    "roc_auc": [
+      0.8088241187862374,
+      0.8508202480803794
+    ],
+    "average_precision": [
+      0.5693765603279239,
+      0.6741657611150631
+    ]
+  },
+  "capacity": [
+    {
+      "share": 0.05,
+      "contact_count": 71,
+      "churners_captured": 56,
+      "precision": 0.7887323943661971,
+      "recall": 0.1497326203208556,
+      "lift": 2.9714543948181062
+    },
+    {
+      "share": 0.1,
+      "contact_count": 141,
+      "churners_captured": 99,
+      "precision": 0.7021276595744681,
+      "recall": 0.2647058823529412,
+      "lift": 2.6451814768460573
+    },
+    {
+      "share": 0.2,
+      "contact_count": 282,
+      "churners_captured": 178,
+      "precision": 0.6312056737588653,
+      "recall": 0.47593582887700536,
+      "lift": 2.377991428679789
+    },
+    {
+      "share": 0.3,
+      "contact_count": 423,
+      "churners_captured": 239,
+      "precision": 0.5650118203309693,
+      "recall": 0.6390374331550802,
+      "lift": 2.128614050391272
+    },
+    {
+      "share": 0.5,
+      "contact_count": 705,
+      "churners_captured": 328,
+      "precision": 0.4652482269503546,
+      "recall": 0.8770053475935828,
+      "lift": 1.752766715970721
+    }
+  ],
+  "calibration": [
+    {
+      "predicted": 0.012251843459307231,
+      "observed": 0.01694915254237288
+    },
+    {
+      "predicted": 0.029396715292288985,
+      "observed": 0.03409090909090909
+    },
+    {
+      "predicted": 0.06688773106181684,
+      "observed": 0.09659090909090909
+    },
+    {
+      "predicted": 0.13467834144210108,
+      "observed": 0.11363636363636363
+    },
+    {
+      "predicted": 0.2306624773972728,
+      "observed": 0.2784090909090909
+    },
+    {
+      "predicted": 0.3690189262127006,
+      "observed": 0.38636363636363635
+    },
+    {
+      "predicted": 0.5318775882171445,
+      "observed": 0.5227272727272727
+    },
+    {
+      "predicted": 0.752028865955926,
+      "observed": 0.6761363636363636
+    }
+  ],
+  "importance": [
+    {
+      "feature": "Contract",
+      "ap_drop": 0.12620468432197476,
+      "std": 0.013274856545879971
+    },
+    {
+      "feature": "tenure",
+      "ap_drop": 0.08833823219744892,
+      "std": 0.014453416988978224
+    },
+    {
+      "feature": "TotalCharges",
+      "ap_drop": 0.0387158501057628,
+      "std": 0.010841490961237349
+    },
+    {
+      "feature": "MonthlyCharges",
+      "ap_drop": 0.030512525292207715,
+      "std": 0.004539998070829535
+    },
+    {
+      "feature": "InternetService",
+      "ap_drop": 0.02783373733933192,
+      "std": 0.006562197642235167
+    },
+    {
+      "feature": "OnlineSecurity",
+      "ap_drop": 0.018881001061717927,
+      "std": 0.008528292462114858
+    },
+    {
+      "feature": "TechSupport",
+      "ap_drop": 0.015301478376772825,
+      "std": 0.010707643872683888
+    },
+    {
+      "feature": "PaperlessBilling",
+      "ap_drop": 0.015166594727755412,
+      "std": 0.0050378529459375815
+    },
+    {
+      "feature": "PaymentMethod",
+      "ap_drop": 0.014296534779331571,
+      "std": 0.00486896537162181
+    },
+    {
+      "feature": "MultipleLines",
+      "ap_drop": 0.004153691948997662,
+      "std": 0.002706262339853009
+    },
+    {
+      "feature": "OnlineBackup",
+      "ap_drop": 0.0037087717085288797,
+      "std": 0.004206103674485121
+    },
+    {
+      "feature": "PhoneService",
+      "ap_drop": 0.00122001144529571,
+      "std": 0.000457091914828697
+    },
+    {
+      "feature": "DeviceProtection",
+      "ap_drop": 0.0005851310694814593,
+      "std": 0.0008529405306100278
+    },
+    {
+      "feature": "StreamingMovies",
+      "ap_drop": -0.00013192277787126282,
+      "std": 0.0015346380964998874
+    },
+    {
+      "feature": "StreamingTV",
+      "ap_drop": -0.00013487812315764457,
+      "std": 0.00027711661690415617
+    }
+  ]
+}

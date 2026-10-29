@@ -1,0 +1,19 @@
+name: Train and test
+on: [push, pull_request]
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    env:
+      OMP_NUM_THREADS: '2'
+      OPENBLAS_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements.lock.txt
+      - run: python -m pip install -r requirements.lock.txt
+      - run: python scripts/download_data.py
+      - run: python -m churn.train
+      - run: python -m pytest -q
